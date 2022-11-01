@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Collections.Generic;
 using RimWorld;
 using Verse;
@@ -9,10 +10,11 @@ namespace AutoExtractGenes
 {
     public class AutoExtractGenesAssignerComp : ThingComp
     {
+        private static readonly MethodInfo m_selectPawn = AccessTools.Method(typeof(Building_GeneExtractor), "SelectPawn");
+        private static readonly FastInvokeHandler selectPawn = MethodInvoker.GetHandler(m_selectPawn);
 
         private List<Pawn> others = new List<Pawn>();
 
-        protected Pawn selectedPawn;
         public override void CompTick()
         {
             if (parent.IsHashIntervalTick(250))
@@ -66,9 +68,12 @@ namespace AutoExtractGenes
                 // if (!pawn.CanReach(extractor, PathEndMode.InteractionCell, Danger.Deadly, false, false, TraverseMode.ByPawn))
                 //    return;
 
-                extractor.SelectedPawn = pawn;
-                if (!pawn.IsPrisonerOfColony && !pawn.Downed)
-                    pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(JobDefOf.EnterBuilding, extractor), new JobTag?(JobTag.Misc), false);
+                
+                //extractor.SelectedPawn = pawn;
+                //if (!pawn.IsPrisonerOfColony && !pawn.Downed)
+                //    pawn.jobs.TryTakeOrderedJob(JobMaker.MakeJob(JobDefOf.EnterBuilding, extractor), new JobTag?(JobTag.Misc), false);
+
+                selectPawn(extractor, pawn);
             }
 
             // Don't hold on to references
