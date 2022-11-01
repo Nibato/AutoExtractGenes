@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+	<nibato.AutoExtractGenes.AutoExtractGenes>Auto-Extract Genes</nibato.AutoExtractGenes.AutoExtractGenes>
+	<nibato.AutoExtractGenes.AutoExtractGenes.Tooltip>Extract genes at a gene extractor whenever it is safe to do so</nibato.AutoExtractGenes.AutoExtractGenes.Tooltip>
+</LanguageData>

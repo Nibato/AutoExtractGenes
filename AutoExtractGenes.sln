@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{280B1115-8D17-4CDD-B0F2-C8EF41C21C00}") = "AutoExtractGenes", "src\AutoExtractGenes.csproj", "{7EC06237-E451-44F8-AA4D-55D2FA12A6F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7EC06237-E451-44F8-AA4D-55D2FA12A6F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC06237-E451-44F8-AA4D-55D2FA12A6F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC06237-E451-44F8-AA4D-55D2FA12A6F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC06237-E451-44F8-AA4D-55D2FA12A6F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {01457768-EF0C-4966-A455-A6D5C643C944}
+	EndGlobalSection
+EndGlobal

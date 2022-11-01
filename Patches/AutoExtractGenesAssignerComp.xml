@@ -1,0 +1,23 @@
+<Patch>
+    <Operation Class="PatchOperationConditional">
+        <xpath>/Defs/ThingDef[defName="GeneExtractor"]/comps</xpath>
+        <nomatch Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="GeneExtractor"]</xpath>
+            <value>
+                <comps>
+		            <li>
+                        <compClass>AutoExtractGenes.AutoExtractGenesAssignerComp</compClass>
+	            	</li>
+                </comps>
+            </value>
+        </nomatch>
+        <match Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="GeneExtractor"]/comps</xpath>
+            <value>
+                <li>
+                    <compClass>AutoExtractGenes.AutoExtractGenesAssignerComp</compClass>
+                </li>
+            </value>
+        </match>
+    </Operation>
+</Patch>
