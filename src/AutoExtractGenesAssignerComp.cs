@@ -15,10 +15,28 @@ namespace AutoExtractGenes
 
         private List<Pawn> others = new List<Pawn>();
 
+        private bool isOthersUpdated = false;
+
         public override void CompTick()
         {
             if (parent.IsHashIntervalTick(250))
                 CompTickRare();
+        }
+        private List<Pawn> getOthers(Building_GeneExtractor extractor)
+        {
+            if (isOthersUpdated)
+                return others;
+
+            others.Clear();
+            foreach (var other in extractor.Map.listerBuildings.AllBuildingsColonistOfClass<Building_GeneExtractor>())
+            {
+                if (other.SelectedPawn != null && other != extractor)
+                    others.Add(other.SelectedPawn);
+            }
+
+            isOthersUpdated = true;
+
+            return others;
         }
 
         public override void CompTickRare()
@@ -36,21 +54,10 @@ namespace AutoExtractGenes
             if (extractor.SelectedPawn != null)
                 return;
 
-            // get a list of pawns that other extrractors currently want
-            others.Clear();
-            foreach (var other in extractor.Map.listerBuildings.AllBuildingsColonistOfClass<Building_GeneExtractor>())
-            {
-                if (other.SelectedPawn != null && other != extractor)
-                    others.Add(other.SelectedPawn);
-            }
+            isOthersUpdated = false;
 
             foreach (var pawn in extractor.Map.mapPawns.AllPawnsSpawned)
             {
-                var acceptanceReport = extractor.CanAcceptPawn(pawn);
-
-                if (!acceptanceReport.Accepted)
-                    continue;
-
                 // Make sure we want to auto-extract this pawn's genes
                 var comp = pawn.GetComp<AutoExtractGenesComp>();
                 if (comp == null || !comp.isEnabled)
@@ -60,8 +67,12 @@ namespace AutoExtractGenes
                 if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating, false))
                     continue;
 
+                var acceptanceReport = extractor.CanAcceptPawn(pawn);
+                if (!acceptanceReport.Accepted)
+                    continue;
+
                 // Make sure no other gene extractors want this pawn
-                if (others.Contains(pawn))
+                if (getOthers(extractor).Contains(pawn))
                     continue;
 
                 // Make sure the pawn can reach this 
