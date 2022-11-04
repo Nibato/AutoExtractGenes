@@ -43,10 +43,8 @@ namespace AutoExtractGenes
         {
             var parent = this.parent;
 
-            if (!(parent is Building_GeneExtractor))
+            if (!(parent is Building_GeneExtractor extractor))
                 return;
-
-            var extractor = (Building_GeneExtractor)parent;
 
             if (!extractor.PowerOn || extractor.innerContainer.Count > 0)
                 return;
