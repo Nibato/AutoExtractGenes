@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using RimWorld;
 using Verse;
 using Verse.AI;
+using Verse.AI.Group;
 using HarmonyLib;
 
 namespace AutoExtractGenes
@@ -63,6 +64,10 @@ namespace AutoExtractGenes
 
                 // Make sure genes have regrown and the pawn is not deathresting
                 if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating) || pawn.health.hediffSet.HasHediff(HediffDefOf.Deathrest))
+                    continue;
+
+                // Bail if this pawn is in a high priority duty
+                if (pawn.mindState.duty?.def.hook == ThinkTreeDutyHook.HighPriority)
                     continue;
 
                 var acceptanceReport = extractor.CanAcceptPawn(pawn);
