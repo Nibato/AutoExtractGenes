@@ -61,8 +61,8 @@ namespace AutoExtractGenes
                 if (comp == null || !comp.isEnabled)
                     continue;
 
-                // Make sure genes have regrown
-                if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating, false))
+                // Make sure genes have regrown and the pawn is not deathresting
+                if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating) || pawn.health.hediffSet.HasHediff(HediffDefOf.Deathrest))
                     continue;
 
                 var acceptanceReport = extractor.CanAcceptPawn(pawn);
@@ -92,3 +92,4 @@ namespace AutoExtractGenes
 
     }
 }
+
