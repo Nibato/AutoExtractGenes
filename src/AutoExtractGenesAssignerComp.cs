@@ -63,7 +63,8 @@ namespace AutoExtractGenes
                     continue;
 
                 // Make sure genes have regrown and the pawn is not deathresting
-                if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating) || pawn.health.hediffSet.HasHediff(HediffDefOf.Deathrest))
+                if (pawn.health.hediffSet.HasHediff(HediffDefOf.XenogermReplicating) 
+                    || (!pawn.IsPrisonerOfColony && pawn.health.hediffSet.HasHediff(HediffDefOf.Deathrest)))
                     continue;
 
                 // Bail if this pawn is in a high priority duty
