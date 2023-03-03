@@ -27,24 +27,27 @@
             <li>Humanoid Alien Races</li>
         </mods>
         <match Class="PatchOperationConditional">
-            <xpath>/Defs/AlienRace.ThingDef_AlienRace[@ParentName="BasePawn"]/comps</xpath>
-            <nomatch Class="PatchOperationAdd">
-                <xpath>/Defs/AlienRace.ThingDef_AlienRace[@ParentName="BasePawn"]</xpath>
-                <value>
-                    <comps>
+            <xpath>/Defs/AlienRace.ThingDef_AlienRace[@ParentName="BasePawn"]</xpath>
+            <match Class="PatchOperationConditional">
+                <xpath>/Defs/AlienRace.ThingDef_AlienRace[@ParentName="BasePawn"]/comps</xpath>
+                <nomatch Class="PatchOperationAdd">
+                    <xpath>/Defs/AlienRace.ThingDef_AlienRace[@ParentName="BasePawn"]</xpath>
+                    <value>
+                        <comps>
+                            <li>
+                                <compClass>AutoExtractGenes.AutoExtractGenesComp</compClass>
+                            </li>
+                        </comps>
+                    </value>
+                </nomatch>
+                <match Class="PatchOperationAdd">
+                    <xpath>/Defs/AlienRace.ThingDef_AlienRace[@ParentName="BasePawn"]/comps</xpath>
+                    <value>
                         <li>
                             <compClass>AutoExtractGenes.AutoExtractGenesComp</compClass>
                         </li>
-                    </comps>
-                </value>
-            </nomatch>
-            <match Class="PatchOperationAdd">
-                <xpath>/Defs/AlienRace.ThingDef_AlienRace[@ParentName="BasePawn"]/comps</xpath>
-                <value>
-                    <li>
-                        <compClass>AutoExtractGenes.AutoExtractGenesComp</compClass>
-                    </li>
-                </value>
+                    </value>
+                </match>
             </match>
         </match>
     </Operation>
