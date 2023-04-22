@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Numbers</li>
+        </mods>
+        <match Class="PatchOperationInsert">
+            <xpath>/Defs/PawnColumnDef[defName = "Numbers_Faction"]</xpath>
+            <value>
+                <PawnColumnDef>
+                    <defName>AutoExtractGenes_Numbers_Toggle</defName>
+                    <workerClass>AutoExtractGenes.PawnColumnWorker_AutoExtractGenes</workerClass>
+                    <sortable>true</sortable>
+                    <paintable>true</paintable>
+                    <headerTip>Auto-Extract Genes</headerTip>
+                    <headerIcon>UI/Icons/Genes/GeneBackground_Xenogene</headerIcon>
+                    <width>45</width>
+                </PawnColumnDef>
+            </value>
+        </match>
+    </Operation>
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Numbers</li>
+        </mods>
+        <match Class="PatchOperationAdd">
+            <xpath>Defs/Numbers.PawnColumnOptionDef[defName = "LivingThings"]/options</xpath>
+            <value>
+                <li>AutoExtractGenes_Numbers_Toggle</li>
+            </value>
+        </match>
+    </Operation>
+</Patch>

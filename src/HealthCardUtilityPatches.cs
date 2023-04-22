@@ -14,27 +14,18 @@ namespace AutoExtractGenes
 	[HarmonyPatch("DrawOverviewTab")]
 	public class HealthCardUtilityPatch_DrawOverViewTab
 	{
-
-
 		public static void Postfix(ref float __result, ref Rect leftRect, ref Pawn pawn)
 		{
 			var curY = __result;
 
+			var autoExtractGenesComp = Utils.GetAutoExtractGenesComponent(pawn);
 
-			if (!(pawn.IsColonist || pawn.IsSlaveOfColony || pawn.IsPrisonerOfColony)
-					|| pawn.Dead
-					|| !pawn.RaceProps.Humanlike
-					|| pawn.IsQuestLodger())
+			if (autoExtractGenesComp == null)
 				return;
 
 			Text.Font = GameFont.Tiny;
 			Text.Anchor = TextAnchor.UpperLeft;
 			GUI.color = Color.white;
-
-			var autoExtractGenesComp = pawn.GetComp<AutoExtractGenesComp>();
-
-			if (autoExtractGenesComp == null)
-				return;
 
 			//curY += 4f;
 
