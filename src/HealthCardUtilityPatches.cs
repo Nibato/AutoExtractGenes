@@ -23,7 +23,6 @@ namespace AutoExtractGenes
 
 			if (!(pawn.IsColonist || pawn.IsSlaveOfColony || pawn.IsPrisonerOfColony)
 					|| pawn.Dead
-					|| pawn.DevelopmentalStage.Baby()
 					|| !pawn.RaceProps.Humanlike
 					|| pawn.IsQuestLodger())
 				return;
