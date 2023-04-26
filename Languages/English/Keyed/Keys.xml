@@ -2,4 +2,6 @@
 <LanguageData>
 	<nibato.AutoExtractGenes.AutoExtractGenes>Auto-Extract Genes</nibato.AutoExtractGenes.AutoExtractGenes>
 	<nibato.AutoExtractGenes.AutoExtractGenes.Tooltip>Extract genes at a gene extractor whenever it is safe to do so</nibato.AutoExtractGenes.AutoExtractGenes.Tooltip>
+	<nibato.AutoExtractGenes.defaultEnabledExplanation>Auto-enable for new pawns</nibato.AutoExtractGenes.defaultEnabledExplanation>
+	<nibato.AutoExtractGenes.defaultEnabledTooltip>New pawns will automatically have Auto-Extract Genes enabled/checked when joining your colony.</nibato.AutoExtractGenes.defaultEnabledTooltip>
 </LanguageData>

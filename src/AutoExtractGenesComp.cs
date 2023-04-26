@@ -8,6 +8,11 @@ namespace AutoExtractGenes
         public bool isEnabled = false;
 
 
+        public override void Initialize(CompProperties props)
+        {
+            this.isEnabled = AutoExtractGenes.getSettings().defaultEnabled;
+            base.Initialize(props);
+        }
 
         public override void PostExposeData()
         {
