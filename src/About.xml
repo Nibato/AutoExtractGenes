@@ -14,7 +14,6 @@
   </modDependencies>
   <supportedVersions>
     <li>1.4</li>
-    <li>1.5</li>
   </supportedVersions>
   <description>Adds a checkbox to auto-extract a pawn's genes at a gene extractor whenever they have regrown.</description>
 </ModMetaData>
