@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+	<nibato.AutoExtractGenes.AutoExtractGenes>Autoextraer Genes</nibato.AutoExtractGenes.AutoExtractGenes>
+	<nibato.AutoExtractGenes.AutoExtractGenes.Tooltip>Extraer genes en un extractor de genes siempre que sea seguro hacerlo</nibato.AutoExtractGenes.AutoExtractGenes.Tooltip>
+	<nibato.AutoExtractGenes.defaultEnabledExplanation>Autohabilitar para nuevos colonos</nibato.AutoExtractGenes.defaultEnabledExplanation>
+	<nibato.AutoExtractGenes.defaultEnabledTooltip>Los nuevos colonos tendrán automáticamente Autoextraer Genes habilitado/marcado al unirse a tu colonia.</nibato.AutoExtractGenes.defaultEnabledTooltip>
+</LanguageData>
