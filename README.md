@@ -6,3 +6,7 @@ Adds a checkbox on the Health tab of colonists, slaves, and prisoners that, when
 ### Links
 
 - [Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=2882834449)
+
+
+### Translation Contributors
+Ferchu (Spanish)
