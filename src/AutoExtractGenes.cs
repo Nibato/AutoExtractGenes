@@ -9,7 +9,6 @@ namespace AutoExtractGenes
     public class AutoExtractGenes : Mod
     {
         AutoExtractGenesSettings settings;
-        private static int reorderableGroupId = -1;
 
         public AutoExtractGenes(ModContentPack content) : base(content)
         {

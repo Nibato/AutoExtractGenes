@@ -18,11 +18,15 @@ namespace AutoExtractGenes
 
         private bool isOthersUpdated = false;
 
-        public override void CompTick()
+
+        public override void CompTickInterval(int delta)
         {
-            if (parent.IsHashIntervalTick(250))
-                CompTickRare();
+            if (parent.IsHashIntervalTick(250, delta))
+            {
+                checkForInsertions();
+            }
         }
+
         private List<Pawn> getOthers(Building_GeneExtractor extractor)
         {
             if (isOthersUpdated)
@@ -40,7 +44,7 @@ namespace AutoExtractGenes
             return others;
         }
 
-        public override void CompTickRare()
+        private void checkForInsertions()
         {
             var parent = this.parent;
 
