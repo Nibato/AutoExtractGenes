@@ -15,7 +15,7 @@ namespace AutoExtractGenes
     {
 		public static AutoExtractGenesComp GetAutoExtractGenesComponent(Pawn pawn)
 		{
-			if (!(pawn.IsColonist || pawn.IsSlaveOfColony || pawn.IsPrisonerOfColony)
+			if (!(pawn.IsColonist || pawn.IsSlaveOfColony || pawn.IsPrisonerOfColony || (pawn.IsColonySubhuman && pawn.IsGhoul))
 					|| pawn.Dead
 					|| !pawn.RaceProps.Humanlike
 					|| pawn.IsQuestLodger())
