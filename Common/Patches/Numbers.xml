@@ -4,6 +4,7 @@
     <Operation Class="PatchOperationFindMod">
         <mods>
             <li>Numbers</li>
+			<li>Numbers (1.6 Temp)</li>
         </mods>
         <match Class="PatchOperationInsert">
             <xpath>/Defs/PawnColumnDef[defName = "Numbers_Faction"]</xpath>
@@ -24,6 +25,7 @@
     <Operation Class="PatchOperationFindMod">
         <mods>
             <li>Numbers</li>
+			<li>Numbers (1.6 Temp)</li>
         </mods>
         <match Class="PatchOperationAdd">
             <xpath>Defs/Numbers.PawnColumnOptionDef[defName = "LivingThings"]/options</xpath>
