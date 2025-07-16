@@ -12,6 +12,11 @@
       <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
     </li>
   </modDependencies>
+  <loadAfter>
+    <li>erdelf.HumanoidAlienRaces</li>
+    <li>mehni.Numbers</li>
+    <li>dawnsglow.Numbers</li>
+  </loadAfter>
   <supportedVersions>
     <li>1.4</li>
     <li>1.5</li>
