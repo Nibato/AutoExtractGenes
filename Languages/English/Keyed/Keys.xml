@@ -4,4 +4,6 @@
 	<nibato.AutoExtractGenes.AutoExtractGenes.Tooltip>Extract genes at a gene extractor whenever it is safe to do so</nibato.AutoExtractGenes.AutoExtractGenes.Tooltip>
 	<nibato.AutoExtractGenes.defaultEnabledExplanation>Auto-enable for new pawns</nibato.AutoExtractGenes.defaultEnabledExplanation>
 	<nibato.AutoExtractGenes.defaultEnabledTooltip>New pawns will automatically have Auto-Extract Genes enabled/checked when joining your colony.</nibato.AutoExtractGenes.defaultEnabledTooltip>
+	<nibato.AutoExtractGenes.skipTendablePawnsExplanation>Skip if hediffs require tending</nibato.AutoExtractGenes.skipTendablePawnsExplanation>
+	<nibato.AutoExtractGenes.skipTendablePawnsTooltip>Any pawns that have medical conditions requiring tending will not have their genes auto extracted</nibato.AutoExtractGenes.skipTendablePawnsTooltip>
 </LanguageData>

@@ -59,6 +59,8 @@ namespace AutoExtractGenes
 
             isOthersUpdated = false;
 
+            var skipTendablePawns = AutoExtractGenes.getSettings().skipTendablePawns;
+
             foreach (var pawn in extractor.Map.mapPawns.AllPawnsSpawned)
             {
                 // Make sure we want to auto-extract this pawn's genes
@@ -73,6 +75,9 @@ namespace AutoExtractGenes
 
                 // Bail if this pawn is in a high priority duty
                 if (pawn.mindState.duty?.def.hook == ThinkTreeDutyHook.HighPriority)
+                    continue;
+
+                if (skipTendablePawns && hasTendableCondition(pawn))
                     continue;
 
                 var acceptanceReport = extractor.CanAcceptPawn(pawn);
@@ -100,6 +105,16 @@ namespace AutoExtractGenes
         }
 
 
+        private bool hasTendableCondition(Pawn pawn)
+        {
+            foreach (var hediff in pawn.health.hediffSet.hediffs)
+            {
+                if (hediff.TendableNow(true))
+                    return true;
+            }
+
+            return false;
+        }
     }
 }
 

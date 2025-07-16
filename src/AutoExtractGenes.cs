@@ -25,12 +25,17 @@ namespace AutoExtractGenes
 
         public override void DoSettingsWindowContents(Rect inRect)
         {
+
             var listingStandard = new Listing_Standard();
             listingStandard.Begin(inRect);
             
             listingStandard.CheckboxLabeled("nibato.AutoExtractGenes.defaultEnabledExplanation".Translate(), 
                 ref settings.defaultEnabled, 
                 "nibato.AutoExtractGenes.defaultEnabledTooltip".Translate());
+
+            listingStandard.CheckboxLabeled("nibato.AutoExtractGenes.skipTendablePawnsExplanation".Translate(), 
+                ref settings.skipTendablePawns, 
+                "nibato.AutoExtractGenes.skipTendablePawnsTooltip".Translate());
 
             listingStandard.End();
             base.DoSettingsWindowContents(inRect);
