@@ -16,7 +16,8 @@ namespace AutoExtractGenes
         public override void ExposeData()
         {
             Scribe_Values.Look(ref defaultEnabled, "defaultEnabled");
-            Scribe_Values.Look(ref skipTendablePawns, "skipTendablePawns");
+            Scribe_Values.Look(ref skipTendablePawns, "skipTendablePawns", true);
+
             base.ExposeData();
         }
     }
