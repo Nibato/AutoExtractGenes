@@ -11,8 +11,12 @@ namespace AutoExtractGenes
 {
     public class AutoExtractGenesAssignerComp : ThingComp
     {
+
         private static readonly MethodInfo m_selectPawn = AccessTools.Method(typeof(Building_GeneExtractor), "SelectPawn");
         private static readonly FastInvokeHandler selectPawn = MethodInvoker.GetHandler(m_selectPawn);
+
+        // Should be the same value as Building_GeneExtractor.TicksToExtract
+        private const int TicksToExtract = 30000;
 
         private List<Pawn> others = new List<Pawn>();
 
@@ -113,7 +117,14 @@ namespace AutoExtractGenes
             foreach (var hediff in pawn.health.hediffSet.hediffs)
             {
                 if (hediff.TendableNow(true))
-                    return true;
+                {
+                    var comp = hediff.TryGetComp<HediffComp_TendDuration>();
+                    var props = comp.TProps;
+
+                    //if (!comp.IsTended || (!props.TendIsPermanent && (comp.tendTicksLeft - props.TendTicksOverlap) <= TicksToExtract))
+                    if (!comp.IsTended || !props.TendIsPermanent)
+                        return true;
+                }
             }
 
             return false;
