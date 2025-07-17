@@ -77,6 +77,9 @@ namespace AutoExtractGenes
                 if (pawn.mindState.duty?.def.hook == ThinkTreeDutyHook.HighPriority)
                     continue;
 
+                if (pawn.Drafted)
+                    continue;
+
                 if (skipTendablePawns && hasTendableCondition(pawn))
                     continue;
 
